@@ -1,0 +1,70 @@
+@use "./../helpers/variables" as *;
+@use "./../helpers/mixins" as *;
+@use "./../helpers/placeholders" as *;
+
+#worksHeader {
+  height: 50vh;
+
+  .works-header {
+    height: 100%;
+  
+    .page-title {
+      & > div {
+        width: 100%;
+        text-align: center;
+  
+        h1 {
+          font-size: 3.5rem;
+        }
+  
+        p {
+          @extend %p_style;
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 40rem) {
+  #worksHeader {
+    height: 65vh;
+  }
+}
+
+@media (width >= 48rem) {
+  #worksHeader {
+    height: 30vh;
+
+    .works-header {
+      display: flex;
+      justify-content: center;
+      padding-top: 7rem;
+
+      .page-title {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (width >= 64rem) {
+  #worksHeader {
+    height: 50vh;
+
+    .works-header {
+      display: block;
+
+      .page-title {
+        & > div {
+          text-align: initial;
+          padding: 20px;
+          width: 46vw;
+
+          p {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,194 @@
+@use "./../helpers/variables" as *;
+@use "./../helpers/mixins" as *;
+
+header {
+  nav {
+    width: 100%;
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $alt_color;
+      position: relative;
+
+      .logo {
+        padding: 20px;
+        flex-basis: 8rem;
+        text-align: center;
+
+        a {
+          font-family: $logo_font;
+          font-size: 3rem;
+          font-weight: bold;
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+
+      .toggle-menu {
+        padding: 20px;
+        line-height: 0px;
+        cursor: pointer;
+
+        .icon {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      .nav-list {
+        width: 90%;
+        position: absolute;
+        top: 80px;
+        left: 18px;
+        background-color: #eee;
+        padding: 20px;
+        border-radius: 5px;
+        z-index: 2;
+        transform: rotateX(90deg);
+        transform-origin: top;
+        transition-duration: 0.5s;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+
+          li {
+            list-style: none;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            color: $main_color;
+
+            a {
+              font-family: $content_font;
+              text-decoration: none;
+              color: inherit;
+              font-weight: bold;
+              font-size: 1.2rem;
+              display: block;
+            }
+          }
+
+          .social {
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #999;
+
+            a {
+              color: inherit;
+              margin: 0 20px;
+
+              .fa6-brands--github,
+              .fa6-brands--x-twitter {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+        }
+      }
+
+      .open-menu {
+        transform: rotateX(0);
+      }
+    }
+  }
+}
+
+@media (width >= 40rem) {
+  header {
+    nav {
+      .nav-content {
+        .nav-list {
+          width: 90%;
+          left: 36px;
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 48rem) {
+  header {
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      .nav-content {
+        .logo {
+          flex-basis: 10rem;
+
+          a {
+            font-size: 4rem;
+          }
+        }
+
+        .nav-list {
+          width: 93%;
+          top: 6rem;
+          left: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 64rem) {
+  header {
+    nav {
+      .nav-content {
+        .logo {
+          text-align: initial;
+        }
+  
+        .toggle-menu {
+          display: none;
+        }
+        
+        .nav-list {
+          transform: rotateX(0);
+          position: initial;
+          background-color: transparent;
+          flex-basis: 30rem;
+          line-height: 0;
+          padding: 0;
+  
+          ul {
+            flex-direction: row;
+            justify-content: space-around;
+  
+            li {
+              color: inherit;
+              padding: 0;
+              transition-duration: 0.3s;
+              width: initial;
+  
+              &:not(:last-child):hover {
+                color: $blue_color;
+              }
+            }
+  
+            .social {
+              border-top: 0;
+              
+              a {
+                margin: 0 10px;
+                transition-duration: 0.3s;
+  
+                &:hover {
+                  color: $blue_color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

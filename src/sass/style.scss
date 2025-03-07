@@ -1,0 +1,15 @@
+/* Global Rules */
+@use "./global/app";
+@use "./global/icons";
+@use "./global/footer";
+@use "./global/nav";
+
+/* Home Page */
+@use "./home/hero";
+@use "./home/bio";
+@use "./home/skills";
+@use "./home/works";
+
+/* Works Page */
+@use "./works/worksHeader";
+@use "./works/worksContent";

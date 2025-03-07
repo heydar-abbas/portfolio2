@@ -1,0 +1,89 @@
+@use "./../helpers/mixins" as *;
+@use "./../helpers/variables" as *;
+@use "./../helpers/placeholders" as *;
+
+.home-content .skills-card {
+  font-family: $header_font;
+  @extend %card_style;
+  margin-bottom: 1rem;
+
+  .card-title {
+    display: none;
+  }
+
+  .card-content {
+    width: 100%;
+
+    h4 {
+      color: $blue_color;
+      text-transform: capitalize;
+    }
+
+    h2 {
+      @extend %h2_style;
+    }
+
+    .line-gradient {
+      @extend %line_style;
+      background: linear-gradient(90deg, $alt_color, $main_color);
+    }
+
+    .skills-list {
+      font-family: $content_font;
+      display: flex;
+
+      ul {
+        line-height: 1.7rem;
+        padding: 20px;
+        flex-basis: 50%;
+      }
+    }
+  }
+}
+
+@media (width >= 40rem) {
+  .home-content {
+    .skills-card {
+      width: 90%;
+      box-shadow: 0 10px 20px $shadow_color;
+      border-radius: 5px;
+      margin: 0 auto 20px;
+    }
+  }
+}
+
+@media (width >= 48rem) {
+  .home-content {
+    .skills-card {
+      align-self: self-start;
+      margin: 0 0 0 3rem;
+      width: 80%;
+      padding: 80px 20px 20px;
+      transform: translateY(-156px);
+
+      .card-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+
+        h3 {
+          @include number_style;
+        }
+      }
+
+      .card-content {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (width >= 64rem) {
+  .home-content {
+    .skills-card {
+      margin: 0;
+      width: 90%;
+    }
+  }
+}

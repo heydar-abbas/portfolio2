@@ -1,0 +1,92 @@
+@use "./../helpers/mixins" as *;
+@use "./../helpers/variables" as *;
+@use "./../helpers/placeholders" as *;
+
+.home-content .bio-card {
+  font-family: $header_font;
+  @extend %card_style;
+  margin-bottom: 1rem;
+
+  .card-title {
+    display: none;
+  }
+
+  .card-content {
+    h4 {
+      color: $blue_color;
+      text-transform: capitalize;
+      padding: 0;
+    }
+
+    h2 {
+      @extend %h2_style;
+    }
+
+    .line-gradient {
+      @extend %line_style;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, $alt_color, $main_color);
+    }
+
+    p {
+      font-family: $content_font;
+      line-height: 1.7rem;
+      padding: 10px 0;
+    }
+  }
+}
+
+@media (width >= 40rem) {
+  .home-content {
+    .bio-card {
+      width: 90%;
+      box-shadow: 0 10px 20px $shadow_color;
+      border-radius: 5px;
+      margin: 0 auto 20px;
+
+      .card-title {
+        display: none;
+      }
+
+      .card-content {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (width >= 48rem) {
+  .home-content {
+    .bio-card {
+      margin: 0 0 0 3rem;
+      width: 80%;
+      align-self: self-start;
+      position: relative;
+      z-index: 3;
+
+      .card-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+
+        h3 {
+          @include number_style;
+        }
+      }
+
+      .card-content {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (width >= 64rem) {
+  .home-content {
+    .bio-card {
+      margin: 0;
+      width: 90%;
+    }
+  }
+}

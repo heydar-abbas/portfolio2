@@ -1,0 +1,115 @@
+@use "./../helpers/variables" as *;
+@use "./../helpers/mixins" as *;
+@use "./../helpers/placeholders" as *;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  .hero-img {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mix-blend-mode: color-dodge;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  .textwriter {
+    @extend %p_style;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background-color: $main_color;
+      border-left: 2px solid;
+      animation: 8s steps(26) 1s forwards typing, 1s step-end infinite blink;
+    }
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 100%;
+  }
+  50% {
+    width: 0;
+  }
+  75% {
+    width: 56%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@media (width >= 40rem) {
+  .hero {
+    flex-direction: row-reverse;
+    margin-bottom: 0;
+
+    .hero-img {
+      width: 45vw;
+      height: 16rem;
+    }
+  }
+}
+
+@media (width >= 48rem) {
+  .hero {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+
+    .hero-img {
+      width: 56vw;
+      height: 100%;
+
+      img {
+        aspect-ratio: unset;
+      }
+    }
+
+    .textwriter {
+      display: inline-block;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (width >= 64rem) {
+  .hero {
+    height: 100vh;
+
+    .hero-img {
+      width: 85vw;
+    }
+  }
+}
+
+@media (width >= 80rem) {
+  .hero {
+    .hero-img {
+      width: 80vw;
+    }
+
+    .textwriter {
+      font-size: 1.6rem;
+    }
+  }
+}
