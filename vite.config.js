@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "APP_");
 
   return {
-    base: "/heydarabbas",
+    base: env.APP_BASE_URL,
     envPrefix: "APP_",
     server: {
       port: "3000",
